@@ -75,6 +75,28 @@
             padding: 1rem;
             margin-top: 2rem;
         }
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            background-color: #20b955;
+        }
     </style>
 </head>
 <body>
@@ -120,12 +142,15 @@
     <section id="contact" class="section">
         <h2>Contact Us</h2>
         <p>Email: info@waldoslimited.com</p>
-        <p>Phone: +254 716126580</p>
+        <p>Phone: +254 700 123 456</p>
         <p>Location: Nairobi, Kenya</p>
     </section>
 
     <footer>
         <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254700123456" class="whatsapp-float" target="_blank">💬</a>
 </body>
 </html>
