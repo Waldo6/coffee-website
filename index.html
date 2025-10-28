@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Waldos Limited - Roasting the finest coffee, selling premium coffee equipment, and offering professional training.">
   <meta property="og:title" content="Waldos Limited - Coffee Roasters & Equipment">
   <meta property="og:description" content="Roasting perfection and brewing passion. Discover our coffee beans, equipment, and training.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
   <meta property="og:type" content="website">
   <title>Waldos Limited - Coffee Roasters & Equipment</title>
-  <link rel="icon" type="image/png" href="coffee-icon.png">
+  <link rel="icon" type="image/png" href="coffee-icon.png" />
 
   <style>
     /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #faf6f1;
       color: #3e2723;
       line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
     }
 
+    /* Header */
     header {
       background: linear-gradient(90deg, #4e342e, #6d4c41);
       color: white;
       padding: 1rem 2rem;
-      text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.8rem;
       font-family: Georgia, serif;
-    }
-
-    nav {
-      margin-top: 0.5rem;
     }
 
     nav a {
       color: white;
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
       position: relative;
@@ -64,47 +58,44 @@
       height: 2px;
       background: #d7ccc8;
       width: 0;
-      transition: width 0.3s ease;
+      transition: width 0.3s;
       margin: auto;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    nav a:hover::after { width: 100%; }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
 
-    nav a:hover {
-      color: #d7ccc8;
-    }
+    #theme-toggle:hover { transform: scale(1.2); }
 
+    /* Hero Section */
     .hero {
-      position: relative;
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
                   url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      height: 100vh;
+      height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       text-align: center;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
       padding: 2rem;
     }
 
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-family: Georgia, serif;
-    }
+    .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: Georgia, serif; }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-
+    /* Sections */
     .section {
       padding: 4rem 2rem;
       max-width: 1200px;
@@ -119,6 +110,7 @@
       font-family: Georgia, serif;
     }
 
+    /* Cards */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -129,13 +121,13 @@
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     }
 
     .card img {
@@ -146,26 +138,22 @@
 
     .card h3 {
       margin: 1rem 0 0.5rem;
+      text-align: center;
       color: #5d4037;
     }
 
     .card p {
-      padding: 0 1rem 1rem;
-      font-size: 0.95rem;
-    }
-
-    #contact p {
       text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      padding: 0 1rem 1rem;
+      color: #4e342e;
     }
 
+    /* Footer */
     footer {
       background: #3e2723;
       color: white;
       text-align: center;
       padding: 1.5rem;
-      margin-top: 2rem;
       font-size: 0.9rem;
     }
 
@@ -175,11 +163,9 @@
       margin: 0 10px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
-    /* Floating WhatsApp Button */
+    /* WhatsApp Button */
     .whatsapp-float {
       position: fixed;
       width: 60px;
@@ -188,13 +174,12 @@
       right: 20px;
       background-color: #25D366;
       border-radius: 50%;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 100;
     }
 
     .whatsapp-float img {
@@ -202,29 +187,33 @@
       height: 35px;
     }
 
-    .whatsapp-float:hover {
-      background-color: #20b955;
+    /* Dark Mode */
+    body.dark {
+      background-color: #1b1613;
+      color: #f5ebe0;
     }
 
-    /* Responsive WhatsApp Button for Mobile */
-    @media (max-width: 600px) {
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-      }
-      .whatsapp-float img {
-        width: 28px;
-        height: 28px;
-      }
+    body.dark header {
+      background: linear-gradient(90deg, #3e2b24, #2d1e18);
+    }
 
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+    body.dark .card {
+      background: #2b211c;
+      color: #f5ebe0;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark .section h2 {
+      color: #d7ccc8;
+    }
+
+    body.dark footer {
+      background: #2a1d18;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
     }
   </style>
 </head>
@@ -234,59 +223,89 @@
     <h1>Waldos Limited</h1>
     <nav>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="#roasting">Roasting</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#training">Training</a>
       <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
   </header>
 
   <section class="hero">
     <div>
       <h2>Roasting Perfection, Brewing Passion ☕</h2>
-      <p>Discover the art of coffee with Waldos Limited — from freshly roasted beans to premium equipment and expert training.</p>
+      <p>From beans to cup, Waldos Limited delivers authentic coffee experiences through quality, craft, and care.</p>
     </div>
   </section>
 
   <section id="about" class="section">
     <h2>About Us</h2>
-    <p style="max-width:800px; margin:auto; text-align:center;">
-      At Waldos Limited, we are passionate about coffee. From roasting the finest beans to supplying premium coffee equipment and offering expert training, our mission is to bring the perfect cup to every coffee lover. Whether you're a home brewer, café owner, or corporate buyer, we've got the expertise and products to meet your needs.
+    <p>
+      Waldos Limited is built on a love for coffee. We roast premium beans, supply high-end coffee equipment, and train enthusiasts and professionals to master the perfect brew. Our goal is to elevate the coffee experience across Kenya and beyond.
     </p>
   </section>
 
-  <section id="services" class="section">
-    <h2>Our Services</h2>
+  <section id="roasting" class="section">
+    <h2>Coffee Roasting</h2>
     <div class="services">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Coffee Roasting">
-        <h3 style="text-align:center;">Coffee Roasting</h3>
-        <p>We roast high-quality coffee beans to perfection, bringing out unique flavors and aromas for every palate.</p>
+        <h3>Precision Roasting</h3>
+        <p>We craft every batch to perfection — unlocking deep, rich flavors and distinct profiles that celebrate every bean’s origin.</p>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Coffee Equipment">
-        <h3 style="text-align:center;">Coffee Equipment Sales</h3>
-        <p>We supply premium coffee machines, grinders, and brewing accessories for homes, cafés, and offices.</p>
+        <img src="https://images.unsplash.com/photo-1445077100181-a33e9ac94db0" alt="Flavor Development">
+        <h3>Flavor Development</h3>
+        <p>Our expert roasters balance time, temperature, and technique to create consistent and exceptional coffee blends.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipment" class="section">
+    <h2>Equipment Sales</h2>
+    <div class="services">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03" alt="Coffee Machine">
+        <h3>Espresso Machines</h3>
+        <p>Top-quality machines for homes, cafés, and offices — designed for performance, durability, and precision brewing.</p>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Coffee Training">
-        <h3 style="text-align:center;">Training</h3>
-        <p>We offer hands-on training in brewing techniques, equipment use, and coffee appreciation for all skill levels.</p>
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Coffee Grinder">
+        <h3>Grinders & Brewers</h3>
+        <p>We stock reliable grinders and brewing tools to ensure every cup achieves perfect extraction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="training" class="section">
+    <h2>Training</h2>
+    <div class="services">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Barista Training">
+        <h3>Barista Training</h3>
+        <p>Hands-on training programs that teach the art of brewing, milk texturing, and coffee presentation.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3c1" alt="Home Brewing">
+        <h3>Home Brewing</h3>
+        <p>Learn how to brew world-class coffee at home with personalized lessons from industry experts.</p>
       </div>
     </div>
   </section>
 
   <section id="shop" class="section">
-    <h2>Our Products</h2>
+    <h2>Our Shop</h2>
     <div class="services">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03" alt="Arabica Beans">
-        <h3 style="text-align:center;">Arabica Beans</h3>
-        <p>Rich, smooth, and perfectly roasted — ideal for espresso or filter brewing.</p>
+        <h3>Arabica Beans</h3>
+        <p>Sourced from the best farms and roasted in-house — smooth, rich, and aromatic.</p>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec" alt="Espresso Machine">
-        <h3 style="text-align:center;">Home Espresso Machine</h3>
-        <p>Compact and powerful machines that bring café-quality coffee to your home.</p>
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec" alt="Home Espresso">
+        <h3>Home Espresso Machine</h3>
+        <p>Compact and efficient — perfect for coffee lovers who value convenience and quality.</p>
       </div>
     </div>
   </section>
@@ -300,7 +319,7 @@
 
   <footer>
     <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
-    <div style="margin-top: 0.5rem;">
+    <div>
       <a href="#">Instagram</a> |
       <a href="#">Facebook</a> |
       <a href="#">LinkedIn</a>
@@ -308,10 +327,36 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/254702647131?text=Hi%20Waldos%20Limited,%20I%20would%20like%20to%20know%20more%20about%20your%20coffee." 
+  <a href="https://wa.me/254702647131?text=Hi%20Waldos%20Limited,%20I'd%20like%20to%20know%20more%20about%20your%20coffee."
      class="whatsapp-float" target="_blank">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
   </a>
+
+  <script>
+    const toggleButton = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function applyTheme(isDark) {
+      document.body.classList.toggle("dark", isDark);
+      toggleButton.textContent = isDark ? "☀️" : "🌙";
+    }
+
+    applyTheme(prefersDark.matches);
+
+    toggleButton.addEventListener("click", () => {
+      const isDark = !document.body.classList.contains("dark");
+      applyTheme(isDark);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) applyTheme(savedTheme === "dark");
+
+    prefersDark.addEventListener("change", (e) => {
+      applyTheme(e.matches);
+    });
+  </script>
 </body>
 </html>
+
 
