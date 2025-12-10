@@ -97,7 +97,8 @@
     .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:1400;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
     .wa-mini{display:none;flex-direction:column;align-items:flex-end;gap:.45rem}
     .wa-mini a{background:#fff;padding:.5rem .8rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow);font-weight:700}
-    .wa-button{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--success);box-shadow:0 12px 30px rgba(37,211,102,.18);cursor:pointer}
+    .wa-button{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--success);box-shadow:0 12px 30px rgba(37,211,102,.18);cursor:pointer;transition:transform .2s}
+    .wa-button:hover{transform:scale(1.1)}
 
     /* Cookie banner & footer */
     .cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 12px 30px var(--shadow);display:none;z-index:1500;align-items:center;justify-content:space-between}
@@ -122,192 +123,189 @@
   </style>
 </head>
 <body>
-  <a href="#maincontent" class="skip-link">Skip to content</a>
-  <div class="top-announcement" role="note">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
+<a href="#maincontent" class="skip-link">Skip to content</a>
+<div class="top-announcement" role="note">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
 
-  <!-- Header -->
-  <header>
-    <div class="nav-wrap" role="navigation" aria-label="Main navigation">
-      <div class="brand" aria-hidden="false">
-        <img src="coffee-icon.png" alt="Waldos logo" width="36" height="36" style="border-radius:6px;object-fit:cover"/>
-        <span>Waldos Limited</span>
-      </div>
-      <nav class="primary" aria-label="Primary links">
-        <a href="#about">About</a>
-        <a href="#roasting">Roasting</a>
-        <a href="#equipment">Equipment</a>
-        <a href="#training">Training</a>
-        <a href="#shop">Shop</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="actions" aria-hidden="false">
-        <button class="icon-btn mobile-toggle" id="open-mobile" aria-label="Open menu">☰</button>
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
-        <button class="icon-btn" id="cart-btn" aria-label="Cart">🛒 <span id="cart-counter" aria-live="polite">0</span></button>
+<!-- Header -->
+<header>
+  <div class="nav-wrap" role="navigation" aria-label="Main navigation">
+    <div class="brand" aria-hidden="false">
+      <img src="coffee-icon.png" alt="Waldos logo" width="36" height="36" style="border-radius:6px;object-fit:cover"/>
+      <span>Waldos Limited</span>
+    </div>
+    <nav class="primary" aria-label="Primary links">
+      <a href="#about">About</a>
+      <a href="#roasting">Roasting</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#training">Training</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="actions" aria-hidden="false">
+      <button class="icon-btn mobile-toggle" id="open-mobile" aria-label="Open menu">☰</button>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="icon-btn" id="cart-btn" aria-label="Cart">🛒 <span id="cart-counter" aria-live="polite">0</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div id="mobile-drawer" style="display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.45);">
+  <aside style="width:280px;height:100%;background:#fff;padding:1rem;box-shadow:4px 0 20px rgba(0,0,0,.2);">
+    <button id="close-mobile" aria-label="Close menu" style="background:none;border:none;margin-bottom:.6rem">✕ Close</button>
+    <nav style="display:flex;flex-direction:column;gap:.6rem">
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#shop" onclick="closeMobile()">Shop</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+    </nav>
+    <hr style="margin:1rem 0" />
+    <div><strong>Contact</strong><p style="margin:.4rem 0"><a href="tel:+254702647131">+254 702 647 131</a></p></div>
+  </aside>
+  <div style="height:100%" onclick="closeMobile()"></div>
+</div>
+
+<main id="maincontent" class="container" tabindex="-1">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title">Roasting Perfection — Brewing Passion ☕</h1>
+      <p>Premium beans, equipment and barista training. Order online or message us on WhatsApp for our catalogue and fast delivery in Nairobi.</p>
+      <div style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#shop" class="btn btn-primary" style="background:#fff;color:var(--accent);padding:.6rem 1rem;border-radius:8px">Shop Now</a>
+        <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue%20and%20price%20list." target="_blank" rel="noopener" class="btn btn-outline" style="background:var(--success);color:#000;padding:.55rem .9rem;border-radius:8px; font-weight:700">View Catalogue on WhatsApp</a>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Mobile drawer -->
-  <div id="mobile-drawer" style="display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.45);">
-    <aside style="width:280px;height:100%;background:#fff;padding:1rem;box-shadow:4px 0 20px rgba(0,0,0,.2);">
-      <button id="close-mobile" aria-label="Close menu" style="background:none;border:none;margin-bottom:.6rem">✕ Close</button>
-      <nav style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="#about" onclick="closeMobile()">About</a>
-        <a href="#shop" onclick="closeMobile()">Shop</a>
-        <a href="#contact" onclick="closeMobile()">Contact</a>
-      </nav>
-      <hr style="margin:1rem 0" />
-      <div><strong>Contact</strong><p style="margin:.4rem 0"><a href="tel:+254702647131">+254 702 647 131</a></p></div>
+  <!-- Shop grid -->
+  <div class="shop-grid" id="shop" aria-label="Shop area">
+    <aside class="sidebar" aria-labelledby="categories-title">
+      <h3 id="categories-title">Categories</h3>
+      <ul class="category-list" id="category-list">
+        <li><a href="#" data-filter="all">All Products</a></li>
+        <li><a href="#" data-filter="arabica">Arabica Beans</a></li>
+        <li><a href="#" data-filter="espresso">Espresso Machines</a></li>
+        <li><a href="#" data-filter="grinders">Grinders & Brewers</a></li>
+        <li><a href="#" data-filter="training">Training</a></li>
+      </ul>
+      <div style="margin-top:1rem">
+        <strong style="color:var(--accent)">Pickup & Contact</strong>
+        <p style="margin:.4rem 0">Popman House, 3rd Floor, Nyakatch Lane, Nairobi</p>
+        <p><a href="tel:+254702647131">+254 702 647 131</a></p>
+        <a href="https://wa.me/254702647131?text=Hi%20I%20would%20like%20to%20receive%20the%20catalogue" class="btn btn-primary" style="display:block;margin-top:.6rem;background:var(--success);color:#000">Request Catalogue (WhatsApp)</a>
+      </div>
     </aside>
-    <div style="height:100%" onclick="closeMobile()"></div>
-  </div>
 
-  <main id="maincontent" class="container" tabindex="-1">
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <h1 id="hero-title">Roasting Perfection — Brewing Passion ☕</h1>
-        <p>Premium beans, equipment and barista training. Order online or message us on WhatsApp for our catalogue and fast delivery in Nairobi.</p>
-        <div style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
-          <a href="#shop" class="btn btn-primary" style="background:#fff;color:var(--accent);padding:.6rem 1rem;border-radius:8px">Shop Now</a>
-          <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue%20and%20price%20list." target="_blank" rel="noopener" class="btn btn-outline" style="background:var(--success);color:#000;padding:.55rem .9rem;border-radius:8px; font-weight:700">View Catalogue on WhatsApp</a>
+    <section aria-labelledby="products-title">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 id="products-title" style="color:var(--accent)">Featured Products</h2>
+        <div style="color:var(--muted)">Showing top picks</div>
+      </div>
+      <div class="products" id="product-grid" aria-live="polite">
+        <!-- Product cards (sample) -->
+        <article class="product-card" data-category="arabica" data-sku="W-ARAB-250">
+          <picture>
+            <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400" alt="Arabica Beans 250g - medium roast" loading="lazy">
+          </picture>
+          <div class="card-body">
+            <h3>Arabica Beans — 250g</h3>
+            <div class="meta">Single origin · medium roast</div>
+            <div class="price">KSh 1,600</div>
+            <div class="actions-row">
+              <button class="btn btn-primary" onclick="addToCart('W-ARAB-250','Arabica Beans — 250g',1600)">Add to cart</button>
+              <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener" href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Testimonials -->
+      <div style="margin-top:1.25rem">
+        <h3 style="color:var(--accent)">Testimonials</h3>
+        <div class="testimonials">
+          <div class="testimonial" role="article"><strong>Dennis K.</strong> - "Best coffee beans in Nairobi. Fast delivery!"</div>
+          <div class="testimonial" role="article"><strong>Lydia M.</strong> - "The espresso machine I bought changed my mornings. Amazing service."</div>
         </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div style="margin-top:1rem">
+        <h3 style="color:var(--accent)">Subscribe to our Newsletter</h3>
+        <form class="newsletter" onsubmit="subscribeNewsletter(event)">
+          <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </section>
-
-    <!-- Shop grid -->
-    <div class="shop-grid" id="shop" aria-label="Shop area">
-      <aside class="sidebar" aria-labelledby="categories-title">
-        <h3 id="categories-title">Categories</h3>
-        <ul class="category-list" id="category-list">
-          <li><a href="#" data-filter="all">All Products</a></li>
-          <li><a href="#" data-filter="arabica">Arabica Beans</a></li>
-          <li><a href="#" data-filter="espresso">Espresso Machines</a></li>
-          <li><a href="#" data-filter="grinders">Grinders & Brewers</a></li>
-          <li><a href="#" data-filter="training">Training</a></li>
-        </ul>
-        <div style="margin-top:1rem">
-          <strong style="color:var(--accent)">Pickup & Contact</strong>
-          <p style="margin:.4rem 0">Popman House, 3rd Floor, Nyakatch Lane, Nairobi</p>
-          <p><a href="tel:+254702647131">+254 702 647 131</a></p>
-          <a href="https://wa.me/254702647131?text=Hi%20I%20would%20like%20to%20receive%20the%20catalogue" class="btn btn-primary" style="display:block;margin-top:.6rem;background:var(--success);color:#000">Request Catalogue (WhatsApp)</a>
-        </div>
-      </aside>
-
-      <section aria-labelledby="products-title">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <h2 id="products-title" style="color:var(--accent)">Featured Products</h2>
-          <div style="color:var(--muted)">Showing top picks</div>
-        </div>
-        <div class="products" id="product-grid" aria-live="polite">
-          <!-- Product cards (sample) -->
-          <article class="product-card" data-category="arabica" data-sku="W-ARAB-250">
-            <picture>
-              <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400" alt="Arabica Beans 250g - medium roast" loading="lazy">
-            </picture>
-            <div class="card-body">
-              <h3>Arabica Beans — 250g</h3>
-              <div class="meta">Single origin · medium roast</div>
-              <div class="price">KSh 1,600</div>
-              <div class="actions-row">
-                <button class="btn btn-primary" onclick="addToCart('W-ARAB-250','Arabica Beans — 250g',1600)">Add to cart</button>
-                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener" href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Add remaining products here following same structure -->
-
-        </div>
-
-        <!-- Testimonials -->
-        <div style="margin-top:1.25rem">
-          <h3 style="color:var(--accent)">Testimonials</h3>
-          <div class="testimonials">
-            <div class="testimonial" role="article"><strong>Dennis K.</strong> - "Best coffee beans in Nairobi. Fast delivery!"</div>
-            <div class="testimonial" role="article"><strong>Lydia M.</strong> - "The espresso machine I bought changed my mornings. Amazing service."</div>
-          </div>
-        </div>
-
-        <!-- Newsletter -->
-        <div style="margin-top:1rem">
-          <h3 style="color:var(--accent)">Subscribe to our Newsletter</h3>
-          <form class="newsletter" onsubmit="subscribeNewsletter(event)">
-            <input type="email" id="newsletter-email" placeholder="Enter your email" required>
-            <button class="btn btn-primary" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- WhatsApp floating -->
-  <div class="whatsapp-float" aria-hidden="false">
-    <div class="wa-mini" id="wa-mini">
-      <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue." target="_blank" rel="noopener">View catalogue</a>
-      <a href="https://wa.me/254702647131?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener">Chat</a>
-    </div>
-    <a class="wa-button" href="https://wa.me/254702647131?text=Hi%2C%20I%20would%20like%20to%20order%20or%20see%20your%20catalogue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20.52 3.48C18.13 1.09 14.87 0 11.6 0 5.29 0 .2 5.38.17 11.66c0 2.05.54 4.03 1.56 5.76L0 24l6.8-1.77c1.65.9 3.5 1.37 5.43 1.37 6.31 0 11.4-5.38 11.4-11.66 0-3.26-1.12-6.52-3.11-8.42z" fill="#25D366"/>
-        <path d="M17.46 14.57c-.3-.15-1.78-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.33.22-.62.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.5.15-.17.2-.28.3-.47.1-.2.05-.4-.02-.55-.07-.15-.67-1.62-.92-2.2-.24-.57-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.34-.28.28-1.08 1.06-1.08 2.6 0 1.53 1.1 3 1.25 3.2.15.2 2.15 3.4 5.2 4.76 3.05 1.36 3.05.91 3.6.86.55-.05 1.78-.72 2.03-1.41.25-.68.25-1.26.17-1.38-.07-.13-.28-.2-.58-.35z" fill="#fff"/>
-      </svg>
-    </a>
   </div>
+</main>
 
-  <!-- Cookie banner -->
-  <div class="cookie-banner" id="cookie-banner">
-    <span>We use cookies to improve your experience. By continuing, you agree to our cookie policy.</span>
-    <button onclick="acceptCookies()" class="btn btn-primary">Accept</button>
+<!-- WhatsApp floating -->
+<div class="whatsapp-float" aria-hidden="false">
+  <div class="wa-mini" id="wa-mini">
+    <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue." target="_blank" rel="noopener">View catalogue</a>
+    <a href="https://wa.me/254702647131?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener">Chat</a>
   </div>
+  <a class="wa-button" href="https://wa.me/254702647131?text=Hi%2C%20I%20would%20like%20to%20order%20or%20see%20your%20catalogue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20.52 3.48C18.13 1.09 14.87 0 11.6 0 5.29 0 .2 5.38.17 11.66c0 2.05.54 4.03 1.56 5.76L0 24l6.8-1.77c1.65.9 3.5 1.37 5.43 1.37 6.31 0 11.4-5.38 11.4-11.66 0-3.26-1.12-6.52-3.11-8.42z" fill="#25D366"/>
+      <path d="M17.46 14.57c-.3-.15-1.78-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.33.22-.62.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.5.15-.17.2-.28.3-.47.1-.2.05-.4-.02-.55-.07-.15-.67-1.62-.92-2.2-.24-.57-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.34-.28.28-1.08 1.06-1.08 2.6 0 1.53 1.1 3 1.25 3.2.15.2 2.15 3.4 5.2 4.76 3.05 1.36 3.05.91 3.6.86.55-.05 1.78-.72 2.03-1.41.25-.68.25-1.26.17-1.38-.07-.13-.28-.2-.58-.35z" fill="#fff"/>
+    </svg>
+  </a>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
-    <p><a href="mailto:info@waldoslimited.com" style="color:#fff;text-decoration:underline">info@waldoslimited.com</a></p>
-  </footer>
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookie-banner">
+  <span>We use cookies to improve your experience. By continuing, you agree to our cookie policy.</span>
+  <button onclick="acceptCookies()" class="btn btn-primary">Accept</button>
+</div>
 
-  <!-- Scripts -->
-  <script>
-    // Theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', ()=>{
-      document.body.classList.toggle('dark');
-      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    });
-    if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
+  <p><a href="mailto:info@waldoslimited.com" style="color:#fff;text-decoration:underline">info@waldoslimited.com</a></p>
+</footer>
 
-    // Mobile drawer
-    const mobileDrawer = document.getElementById('mobile-drawer');
-    document.getElementById('open-mobile').onclick=()=>mobileDrawer.style.display='block';
-    document.getElementById('close-mobile').onclick=()=>mobileDrawer.style.display='none';
-    function closeMobile(){mobileDrawer.style.display='none'}
+<!-- Scripts -->
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+  if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}
 
-    // WhatsApp mini
-    const waButton = document.querySelector('.wa-button');
-    const waMini = document.getElementById('wa-mini');
-    waButton.addEventListener('mouseenter', ()=> waMini.style.display='flex');
-    waButton.addEventListener('mouseleave', ()=> waMini.style.display='none');
+  // Mobile drawer
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  document.getElementById('open-mobile').onclick=()=>mobileDrawer.style.display='block';
+  document.getElementById('close-mobile').onclick=()=>mobileDrawer.style.display='none';
+  function closeMobile(){mobileDrawer.style.display='none'}
 
-    // Cookie banner
-    const cookieBanner = document.getElementById('cookie-banner');
-    if(!localStorage.getItem('cookiesAccepted')){cookieBanner.style.display='flex'}
-    function acceptCookies(){localStorage.setItem('cookiesAccepted','true');cookieBanner.style.display='none'}
+  // WhatsApp mini
+  const waButton = document.querySelector('.wa-button');
+  const waMini = document.getElementById('wa-mini');
+  waButton.addEventListener('mouseenter', ()=> waMini.style.display='flex');
+  waButton.addEventListener('mouseleave', ()=> waMini.style.display='none');
 
-    // Newsletter
-    function subscribeNewsletter(e){e.preventDefault();alert('Thank you for subscribing!');document.getElementById('newsletter-email').value=''}
+  // Cookie banner
+  const cookieBanner = document.getElementById('cookie-banner');
+  if(!localStorage.getItem('cookiesAccepted')){cookieBanner.style.display='flex'}
+  function acceptCookies(){localStorage.setItem('cookiesAccepted','true');cookieBanner.style.display='none'}
 
-    // Cart (simplified)
-    let cartCount=0;
-    function addToCart(sku,name,price){cartCount++;document.getElementById('cart-counter').textContent=cartCount;alert(`${name} added to cart.`)}
-  </script>
+  // Newsletter
+  function subscribeNewsletter(e){e.preventDefault();alert('Thank you for subscribing!');document.getElementById('newsletter-email').value=''}
 
-  <!-- Service worker -->
-  <script>
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('/sw.js').then(reg=>console.log('Service Worker registered',reg)).catch(err=>console.warn('SW failed',err));
-    }
-  </script>
+  // Cart (simplified)
+  let cartCount=0;
+  function addToCart(sku,name,price){cartCount++;document.getElementById('cart-counter').textContent=cartCount;alert(`${name} added to cart.`)}
+</script>
+
+<!-- Service worker -->
+<script>
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js').then(reg=>console.log('Service Worker registered',reg)).catch(err=>console.warn('SW failed',err));
+  }
+</script>
 </body>
 </html>
