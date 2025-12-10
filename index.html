@@ -8,6 +8,7 @@
   <!-- Primary meta -->
   <meta name="description" content="Waldos Limited – premium coffee beans, espresso machines, grinders and barista training in Nairobi. Order online or on WhatsApp." />
   <meta name="keywords" content="coffee, coffee beans Kenya, espresso machines Nairobi, barista training, Waldos Limited" />
+
   <link rel="canonical" href="https://yourdomain.example/" />
 
   <!-- Open Graph -->
@@ -51,14 +52,11 @@
     img{display:block;max-width:100%}
     :focus{outline:3px solid rgba(78,52,46,0.18);outline-offset:2px}
 
-    /* Skip link */
     .skip-link{position:absolute;left:-999px;top:auto;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;z-index:9999}
     .skip-link:focus{left:1rem;top:1rem}
 
-    /* Top announcement */
     .top-announcement{background:#fff4d9;color:var(--text);text-align:center;padding:.55rem;font-weight:600}
 
-    /* Header */
     header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;position:sticky;top:0;z-index:1000}
     .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;gap:1rem}
     .brand{display:flex;gap:.6rem;align-items:center;font-weight:700;font-size:1.15rem}
@@ -68,17 +66,14 @@
     .actions{display:flex;gap:.5rem;align-items:center}
     .icon-btn{background:transparent;border:none;color:#fff;font-size:1.1rem;cursor:pointer;padding:.35rem;border-radius:6px}
 
-    /* Mobile */
     .mobile-toggle{display:none}
     @media (max-width:900px){nav.primary{display:none}.mobile-toggle{display:inline-block}}
 
-    /* Container & hero */
     .container{max-width:1200px;margin:1rem auto;padding:0 1rem}
     .hero{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder');background-size:cover;background-position:center;border-radius:10px;height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem}
     .hero h1{font-size:2.2rem;margin-bottom:.5rem}
     .hero p{max-width:780px}
 
-    /* Shop layout */
     .shop-grid{display:grid;grid-template-columns:260px 1fr;gap:1rem;margin-top:1.25rem}
     .sidebar{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
     .category-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
@@ -93,18 +88,15 @@
     .btn-primary{background:var(--accent);color:#fff}
     .btn-outline{background:transparent;border:1px solid #ddd}
 
-    /* WhatsApp floating */
     .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:1400;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
     .wa-mini{display:none;flex-direction:column;align-items:flex-end;gap:.45rem}
     .wa-mini a{background:#fff;padding:.5rem .8rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow);font-weight:700}
     .wa-button{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--success);box-shadow:0 12px 30px rgba(37,211,102,.18);cursor:pointer;transition:transform .2s}
     .wa-button:hover{transform:scale(1.1)}
 
-    /* Cookie banner & footer */
     .cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 12px 30px var(--shadow);display:none;z-index:1500;align-items:center;justify-content:space-between}
     footer{background:var(--accent);color:#fff;padding:1rem;border-radius:8px;margin-top:1.5rem;text-align:center}
 
-    /* Testimonials / newsletter */
     .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
     .testimonial{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
     .newsletter{display:flex;gap:.5rem;margin-top:.4rem}
@@ -116,7 +108,6 @@
       .hero{height:48vh}
     }
 
-    /* Dark mode */
     body.dark{background:#0f0d0b;color:#f5e9de}
     body.dark .sidebar, body.dark .product-card{background:#241b17;box-shadow:0 8px 20px rgba(255,255,255,0.03);}
     body.dark footer{background:#1b130f}
@@ -126,10 +117,9 @@
 <a href="#maincontent" class="skip-link">Skip to content</a>
 <div class="top-announcement" role="note">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
 
-<!-- Header -->
 <header>
   <div class="nav-wrap" role="navigation" aria-label="Main navigation">
-    <div class="brand" aria-hidden="false">
+    <div class="brand">
       <img src="coffee-icon.png" alt="Waldos logo" width="36" height="36" style="border-radius:6px;object-fit:cover"/>
       <span>Waldos Limited</span>
     </div>
@@ -141,7 +131,7 @@
       <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="actions" aria-hidden="false">
+    <div class="actions">
       <button class="icon-btn mobile-toggle" id="open-mobile" aria-label="Open menu">☰</button>
       <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
       <button class="icon-btn" id="cart-btn" aria-label="Cart">🛒 <span id="cart-counter" aria-live="polite">0</span></button>
@@ -149,7 +139,6 @@
   </div>
 </header>
 
-<!-- Mobile drawer -->
 <div id="mobile-drawer" style="display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.45);">
   <aside style="width:280px;height:100%;background:#fff;padding:1rem;box-shadow:4px 0 20px rgba(0,0,0,.2);">
     <button id="close-mobile" aria-label="Close menu" style="background:none;border:none;margin-bottom:.6rem">✕ Close</button>
@@ -165,19 +154,17 @@
 </div>
 
 <main id="maincontent" class="container" tabindex="-1">
-  <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <div>
       <h1 id="hero-title">Roasting Perfection — Brewing Passion ☕</h1>
       <p>Premium beans, equipment and barista training. Order online or message us on WhatsApp for our catalogue and fast delivery in Nairobi.</p>
       <div style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
-        <a href="#shop" class="btn btn-primary" style="background:#fff;color:var(--accent);padding:.6rem 1rem;border-radius:8px">Shop Now</a>
-        <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue%20and%20price%20list." target="_blank" rel="noopener" class="btn btn-outline" style="background:var(--success);color:#000;padding:.55rem .9rem;border-radius:8px; font-weight:700">View Catalogue on WhatsApp</a>
+        <a href="#shop" class="btn btn-primary">Shop Now</a>
+        <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue%20and%20price%20list." target="_blank" rel="noopener" class="btn btn-outline" style="background:var(--success);color:#000">View Catalogue on WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- Shop grid -->
   <div class="shop-grid" id="shop" aria-label="Shop area">
     <aside class="sidebar" aria-labelledby="categories-title">
       <h3 id="categories-title">Categories</h3>
@@ -201,25 +188,8 @@
         <h2 id="products-title" style="color:var(--accent)">Featured Products</h2>
         <div style="color:var(--muted)">Showing top picks</div>
       </div>
-      <div class="products" id="product-grid" aria-live="polite">
-        <!-- Product cards (sample) -->
-        <article class="product-card" data-category="arabica" data-sku="W-ARAB-250">
-          <picture>
-            <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400" alt="Arabica Beans 250g - medium roast" loading="lazy">
-          </picture>
-          <div class="card-body">
-            <h3>Arabica Beans — 250g</h3>
-            <div class="meta">Single origin · medium roast</div>
-            <div class="price">KSh 1,600</div>
-            <div class="actions-row">
-              <button class="btn btn-primary" onclick="addToCart('W-ARAB-250','Arabica Beans — 250g',1600)">Add to cart</button>
-              <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener" href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="products" id="product-grid" aria-live="polite"></div>
 
-      <!-- Testimonials -->
       <div style="margin-top:1.25rem">
         <h3 style="color:var(--accent)">Testimonials</h3>
         <div class="testimonials">
@@ -228,7 +198,6 @@
         </div>
       </div>
 
-      <!-- Newsletter -->
       <div style="margin-top:1rem">
         <h3 style="color:var(--accent)">Subscribe to our Newsletter</h3>
         <form class="newsletter" onsubmit="subscribeNewsletter(event)">
@@ -240,71 +209,86 @@
   </div>
 </main>
 
-<!-- WhatsApp floating -->
 <div class="whatsapp-float" aria-hidden="false">
   <div class="wa-mini" id="wa-mini">
     <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue." target="_blank" rel="noopener">View catalogue</a>
     <a href="https://wa.me/254702647131?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener">Chat</a>
   </div>
-  <a class="wa-button" href="https://wa.me/254702647131?text=Hi%2C%20I%20would%20like%20to%20order%20or%20see%20your%20catalogue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <button class="wa-button" id="wa-button" aria-label="Chat on WhatsApp">
     <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20.52 3.48C18.13 1.09 14.87 0 11.6 0 5.29 0 .2 5.38.17 11.66c0 2.05.54 4.03 1.56 5.76L0 24l6.8-1.77c1.65.9 3.5 1.37 5.43 1.37 6.31 0 11.4-5.38 11.4-11.66 0-3.26-1.12-6.52-3.11-8.42z" fill="#25D366"/>
-      <path d="M17.46 14.57c-.3-.15-1.78-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.33.22-.62.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.5.15-.17.2-.28.3-.47.1-.2.05-.4-.02-.55-.07-.15-.67-1.62-.92-2.2-.24-.57-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.34-.28.28-1.08 1.06-1.08 2.6 0 1.53 1.1 3 1.25 3.2.15.2 2.15 3.4 5.2 4.76 3.05 1.36 3.05.91 3.6.86.55-.05 1.78-.72 2.03-1.41.25-.68.25-1.26.17-1.38-.07-.13-.28-.2-.58-.35z" fill="#fff"/>
     </svg>
-  </a>
+  </button>
 </div>
 
-<!-- Cookie banner -->
 <div class="cookie-banner" id="cookie-banner">
-  <span>We use cookies to improve your experience. By continuing, you agree to our cookie policy.</span>
-  <button onclick="acceptCookies()" class="btn btn-primary">Accept</button>
+  <p>We use cookies to improve your experience. By continuing to use our site, you accept our <a href="#">cookie policy</a>.</p>
+  <button class="btn btn-primary" id="accept-cookies">Accept</button>
 </div>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
-  <p><a href="mailto:info@waldoslimited.com" style="color:#fff;text-decoration:underline">info@waldoslimited.com</a></p>
-</footer>
+<footer>&copy; 2025 Waldos Limited. All rights reserved.</footer>
 
-<!-- Scripts -->
 <script>
+  // Mobile menu
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  document.getElementById('open-mobile').onclick = () => mobileDrawer.style.display='block';
+  document.getElementById('close-mobile').onclick = () => mobileDrawer.style.display='none';
+  function closeMobile(){ mobileDrawer.style.display='none'; }
+
   // Theme toggle
   const themeToggle = document.getElementById('theme-toggle');
-  themeToggle.addEventListener('click', ()=>{
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  });
-  if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}
-
-  // Mobile drawer
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  document.getElementById('open-mobile').onclick=()=>mobileDrawer.style.display='block';
-  document.getElementById('close-mobile').onclick=()=>mobileDrawer.style.display='none';
-  function closeMobile(){mobileDrawer.style.display='none'}
-
-  // WhatsApp mini
-  const waButton = document.querySelector('.wa-button');
-  const waMini = document.getElementById('wa-mini');
-  waButton.addEventListener('mouseenter', ()=> waMini.style.display='flex');
-  waButton.addEventListener('mouseleave', ()=> waMini.style.display='none');
+  themeToggle.onclick = () => document.body.classList.toggle('dark');
 
   // Cookie banner
   const cookieBanner = document.getElementById('cookie-banner');
-  if(!localStorage.getItem('cookiesAccepted')){cookieBanner.style.display='flex'}
-  function acceptCookies(){localStorage.setItem('cookiesAccepted','true');cookieBanner.style.display='none'}
+  if(!localStorage.getItem('cookiesAccepted')) cookieBanner.style.display='flex';
+  document.getElementById('accept-cookies').onclick = () => {
+    localStorage.setItem('cookiesAccepted','true'); cookieBanner.style.display='none';
+  }
+
+  // WhatsApp mini toggle
+  const waButton = document.getElementById('wa-button');
+  const waMini = document.getElementById('wa-mini');
+  waButton.addEventListener('mouseenter', ()=> waMini.style.display='flex');
+  waButton.addEventListener('mouseleave', ()=> waMini.style.display='none');
+  waButton.addEventListener('click', ()=> waMini.style.display = waMini.style.display==='flex'?'none':'flex');
+
+  // Product data
+  const products = [
+    {name:'Kenya AA Arabica Beans 250g',category:'arabica',price:'KSh 950',img:'https://images.unsplash.com/photo-1510626176961-4b97b1f8b4b0?q=80&w=500'},
+    {name:'Espresso Machine X200',category:'espresso',price:'KSh 48,500',img:'https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=500'},
+    {name:'Brew Grinder Pro',category:'grinders',price:'KSh 12,400',img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=500'},
+    {name:'Barista Training Session',category:'training',price:'KSh 8,500',img:'https://images.unsplash.com/photo-1564518098559-974f6784f22b?q=80&w=500'}
+  ];
+
+  const productGrid = document.getElementById('product-grid');
+  function renderProducts(filter='all'){
+    productGrid.innerHTML = '';
+    products.forEach(p=>{
+      if(filter==='all'||p.category===filter){
+        const div = document.createElement('div');
+        div.className='product-card';
+        div.innerHTML=`<img src="${p.img}" alt="${p.name}"><div class="card-body"><h4>${p.name}</h4><div class="price">${p.price}</div><div class="actions-row"><button class="btn btn-primary">Add to Cart</button></div></div>`;
+        productGrid.appendChild(div);
+      }
+    });
+  }
+  renderProducts();
+
+  // Category filter
+  document.querySelectorAll('#category-list a').forEach(cat=>{
+    cat.addEventListener('click',e=>{
+      e.preventDefault();
+      renderProducts(cat.dataset.filter);
+    });
+  });
 
   // Newsletter
-  function subscribeNewsletter(e){e.preventDefault();alert('Thank you for subscribing!');document.getElementById('newsletter-email').value=''}
-
-  // Cart (simplified)
-  let cartCount=0;
-  function addToCart(sku,name,price){cartCount++;document.getElementById('cart-counter').textContent=cartCount;alert(`${name} added to cart.`)}
-</script>
-
-<!-- Service worker -->
-<script>
-  if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('/sw.js').then(reg=>console.log('Service Worker registered',reg)).catch(err=>console.warn('SW failed',err));
+  function subscribeNewsletter(e){
+    e.preventDefault();
+    const email = document.getElementById('newsletter-email').value;
+    alert(`Thanks! ${email} has been subscribed.`);
+    e.target.reset();
   }
 </script>
 </body>
