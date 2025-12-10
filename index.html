@@ -28,17 +28,17 @@
   <link rel="icon" href="coffee-icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="coffee-icon.png" />
 
-  <!-- Performance: preconnect to fonts and preload hero image -->
+  <!-- Fonts & Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
 
-  <!-- PWA manifest (simple) -->
+  <!-- Manifest -->
   <link rel="manifest" href="/manifest.json" />
 
+  <!-- Core CSS -->
   <style>
-    /* ----------------- CRITICAL / CORE STYLES ----------------- */
     :root{
       --bg:#faf6f1; --text:#3e2723; --muted:#6b4a3d; --accent:#4e342e; --accent-2:#6d4c41; --success:#25D366;
       --card-bg:#fff; --shadow: rgba(0,0,0,0.08);
@@ -47,10 +47,9 @@
     html{scroll-behavior:smooth}
     body{font-family:Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
     h1,h2,h3,h4{font-family:Georgia, serif}
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
-    /* Focus ring for accessibility */
-    :focus{outline: 3px solid rgba(78,52,46,0.18); outline-offset:2px}
+    :focus{outline:3px solid rgba(78,52,46,0.18);outline-offset:2px}
 
     /* Skip link */
     .skip-link{position:absolute;left:-999px;top:auto;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;z-index:9999}
@@ -83,7 +82,7 @@
     .shop-grid{display:grid;grid-template-columns:260px 1fr;gap:1rem;margin-top:1.25rem}
     .sidebar{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
     .category-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
-    .category-list a{display:block;padding:.45rem .6rem;border-radius:8px}
+    .category-list a{display:block;padding:.45rem .6rem;border-radius:8px;cursor:pointer}
     .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
     .product-card{background:var(--card-bg);border-radius:10px;overflow:hidden;box-shadow:0 8px 20px var(--shadow);display:flex;flex-direction:column}
     .product-card img{height:170px;object-fit:cover}
@@ -107,8 +106,9 @@
     /* Testimonials / newsletter */
     .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
     .testimonial{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
+    .newsletter{display:flex;gap:.5rem;margin-top:.4rem}
+    .newsletter input{flex:1;padding:.5rem;border-radius:8px;border:1px solid #ddd}
 
-    /* small screens */
     @media (max-width:900px){
       .shop-grid{grid-template-columns:1fr}
       .wa-mini{display:flex}
@@ -122,10 +122,7 @@
   </style>
 </head>
 <body>
-  <!-- Skip to content -->
   <a href="#maincontent" class="skip-link">Skip to content</a>
-
-  <!-- Announcement -->
   <div class="top-announcement" role="note">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
 
   <!-- Header -->
@@ -135,7 +132,6 @@
         <img src="coffee-icon.png" alt="Waldos logo" width="36" height="36" style="border-radius:6px;object-fit:cover"/>
         <span>Waldos Limited</span>
       </div>
-
       <nav class="primary" aria-label="Primary links">
         <a href="#about">About</a>
         <a href="#roasting">Roasting</a>
@@ -144,7 +140,6 @@
         <a href="#shop">Shop</a>
         <a href="#contact">Contact</a>
       </nav>
-
       <div class="actions" aria-hidden="false">
         <button class="icon-btn mobile-toggle" id="open-mobile" aria-label="Open menu">☰</button>
         <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
@@ -153,7 +148,7 @@
     </div>
   </header>
 
-  <!-- Mobile drawer (hidden by default) -->
+  <!-- Mobile drawer -->
   <div id="mobile-drawer" style="display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.45);">
     <aside style="width:280px;height:100%;background:#fff;padding:1rem;box-shadow:4px 0 20px rgba(0,0,0,.2);">
       <button id="close-mobile" aria-label="Close menu" style="background:none;border:none;margin-bottom:.6rem">✕ Close</button>
@@ -181,9 +176,8 @@
       </div>
     </section>
 
-    <!-- Shop grid: sidebar + products -->
+    <!-- Shop grid -->
     <div class="shop-grid" id="shop" aria-label="Shop area">
-      <!-- Sidebar -->
       <aside class="sidebar" aria-labelledby="categories-title">
         <h3 id="categories-title">Categories</h3>
         <ul class="category-list" id="category-list">
@@ -193,7 +187,6 @@
           <li><a href="#" data-filter="grinders">Grinders & Brewers</a></li>
           <li><a href="#" data-filter="training">Training</a></li>
         </ul>
-
         <div style="margin-top:1rem">
           <strong style="color:var(--accent)">Pickup & Contact</strong>
           <p style="margin:.4rem 0">Popman House, 3rd Floor, Nyakatch Lane, Nairobi</p>
@@ -202,20 +195,16 @@
         </div>
       </aside>
 
-      <!-- Products -->
       <section aria-labelledby="products-title">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <h2 id="products-title" style="color:var(--accent)">Featured Products</h2>
           <div style="color:var(--muted)">Showing top picks</div>
         </div>
-
         <div class="products" id="product-grid" aria-live="polite">
-          <!-- Product sample: responsive srcset, JSON-LD later -->
+          <!-- Product cards (sample) -->
           <article class="product-card" data-category="arabica" data-sku="W-ARAB-250">
             <picture>
-              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-              <source media="(min-width:480px)" srcset="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arabica Beans 250g - medium roast" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400" alt="Arabica Beans 250g - medium roast" loading="lazy">
             </picture>
             <div class="card-body">
               <h3>Arabica Beans — 250g</h3>
@@ -223,125 +212,43 @@
               <div class="price">KSh 1,600</div>
               <div class="actions-row">
                 <button class="btn btn-primary" onclick="addToCart('W-ARAB-250','Arabica Beans — 250g',1600)">Add to cart</button>
-                <!-- Order via WhatsApp with prefilled message (works immediately) -->
-                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
-                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
+                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener" href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
               </div>
             </div>
           </article>
 
-          <article class="product-card" data-category="espresso" data-sku="W-ESP-01">
-            <picture>
-              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-              <source media="(min-width:480px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Home espresso machine compact" loading="lazy">
-            </picture>
-            <div class="card-body">
-              <h3>Home Espresso Machine</h3>
-              <div class="meta">Compact – 15 bar pressure</div>
-              <div class="price">KSh 18,000</div>
-              <div class="actions-row">
-                <button class="btn btn-primary" onclick="addToCart('W-ESP-01','Home Espresso Machine',18000)">Add to cart</button>
-                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
-                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Home%20Espresso%20Machine%20(SKU%3A%20W-ESP-01)%20-%20KSh%2018000.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
-              </div>
-            </div>
-          </article>
+          <!-- Add remaining products here following same structure -->
 
-          <article class="product-card" data-category="grinders" data-sku="W-GRND-01">
-            <picture>
-              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Conical grinder for espresso" loading="lazy">
-            </picture>
-            <div class="card-body">
-              <h3>Conical Grinder</h3>
-              <div class="meta">Precision grind for espresso</div>
-              <div class="price">KSh 6,500</div>
-              <div class="actions-row">
-                <button class="btn btn-primary" onclick="addToCart('W-GRND-01','Conical Grinder',6500)">Add to cart</button>
-                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
-                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Conical%20Grinder%20(SKU%3A%20W-GRND-01)%20-%20KSh%206500.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="training" data-sku="W-BAR-01">
-            <picture>
-              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Barista training session" loading="lazy">
-            </picture>
-            <div class="card-body">
-              <h3>Barista Training — Intro</h3>
-              <div class="meta">1-day hands-on course</div>
-              <div class="price">KSh 4,500</div>
-              <div class="actions-row">
-                <button class="btn btn-primary" onclick="addToCart('W-BAR-01','Barista Training — Intro',4500)">Reserve</button>
-                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
-                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20book%20Barista%20Training%20Intro%20(SKU%3A%20W-BAR-01)%20-%20KSh%204500.%20Preferred%20date%3A%20%5Bdate%5D%20Name%3A%20%5Bname%5D">Book</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Add more product blocks here. Keep same pattern for SEO/JSON-LD -->
         </div>
 
         <!-- Testimonials -->
         <div style="margin-top:1.25rem">
           <h3 style="color:var(--accent)">Testimonials</h3>
           <div class="testimonials">
-            <div class="testimonial" role="article"><strong>Dora</strong><p style="margin-top:.5rem">"Items arrive on time and well packaged. Excellent service."</p></div>
-            <div class="testimonial" role="article"><strong>Angela</strong><p style="margin-top:.5rem">"Great products and support. Highly recommended."</p></div>
+            <div class="testimonial" role="article"><strong>Dennis K.</strong> - "Best coffee beans in Nairobi. Fast delivery!"</div>
+            <div class="testimonial" role="article"><strong>Lydia M.</strong> - "The espresso machine I bought changed my mornings. Amazing service."</div>
           </div>
         </div>
 
         <!-- Newsletter -->
-        <div style="margin-top:1.25rem">
-          <h3 style="color:var(--accent)">Newsletter</h3>
-          <div class="newsletter" role="form" aria-label="Newsletter sign up">
-            <input id="newsletterEmail" type="email" placeholder="Your email address" aria-label="Email">
-            <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
-          </div>
+        <div style="margin-top:1rem">
+          <h3 style="color:var(--accent)">Subscribe to our Newsletter</h3>
+          <form class="newsletter" onsubmit="subscribeNewsletter(event)">
+            <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
         </div>
       </section>
     </div>
-
-    <!-- About & Contact -->
-    <section id="about" style="margin-top:2rem">
-      <h2 style="color:var(--accent)">About Us</h2>
-      <p style="margin-top:.5rem">Waldos Limited roasts premium coffee, supplies equipment and trains baristas across Nairobi and Kenya. We care deeply about quality, sustainability and customer experience.</p>
-    </section>
-
-    <section id="contact" style="margin-top:1rem">
-      <h2 style="color:var(--accent)">Contact</h2>
-      <p>Email: <a href="mailto:info@waldoslimited.com">info@waldoslimited.com</a></p>
-      <p>Phone: <a href="tel:+254702647131">+254 702 647 131</a></p>
-    </section>
   </main>
 
-  <footer>
-    <div style="max-width:1200px;margin:0 auto;padding:0 1rem">
-      <div>&copy; 2025 Waldos Limited</div>
-      <div style="margin-top:.4rem"><a href="#" style="color:#fff">Instagram</a> · <a href="#" style="color:#fff">Facebook</a></div>
-      <div style="margin-top:.5rem;font-size:.9rem;color:#f1e1d4">Payments: M-Pesa · Visa · PayPal</div>
-    </div>
-  </footer>
-
-  <!-- Cookie banner -->
-  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <div>This site uses cookies to ensure you get the best experience.</div>
-    <div style="display:flex;gap:.5rem">
-      <button onclick="handleCookie(true)" style="background:var(--accent);color:#fff;padding:.5rem .7rem;border-radius:8px;border:none">Accept</button>
-      <button onclick="handleCookie(false)" style="padding:.5rem .7rem;border-radius:8px;border:1px solid #ddd">Decline</button>
-    </div>
-  </div>
-
-  <!-- Floating WhatsApp with mini catalogue CTA -->
+  <!-- WhatsApp floating -->
   <div class="whatsapp-float" aria-hidden="false">
     <div class="wa-mini" id="wa-mini">
       <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue." target="_blank" rel="noopener">View catalogue</a>
       <a href="https://wa.me/254702647131?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener">Chat</a>
     </div>
     <a class="wa-button" href="https://wa.me/254702647131?text=Hi%2C%20I%20would%20like%20to%20order%20or%20see%20your%20catalogue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <!-- SVG WhatsApp icon -->
       <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M20.52 3.48C18.13 1.09 14.87 0 11.6 0 5.29 0 .2 5.38.17 11.66c0 2.05.54 4.03 1.56 5.76L0 24l6.8-1.77c1.65.9 3.5 1.37 5.43 1.37 6.31 0 11.4-5.38 11.4-11.66 0-3.26-1.12-6.52-3.11-8.42z" fill="#25D366"/>
         <path d="M17.46 14.57c-.3-.15-1.78-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.33.22-.62.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.5.15-.17.2-.28.3-.47.1-.2.05-.4-.02-.55-.07-.15-.67-1.62-.92-2.2-.24-.57-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.34-.28.28-1.08 1.06-1.08 2.6 0 1.53 1.1 3 1.25 3.2.15.2 2.15 3.4 5.2 4.76 3.05 1.36 3.05.91 3.6.86.55-.05 1.78-.72 2.03-1.41.25-.68.25-1.26.17-1.38-.07-.13-.28-.2-.58-.35z" fill="#fff"/>
@@ -349,138 +256,58 @@
     </a>
   </div>
 
-  <!-- Structured data: Organization + sample products -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Waldos Limited",
-    "url":"https://yourdomain.example/",
-    "logo":"https://yourdomain.example/coffee-icon.png",
-    "sameAs":[
-      "https://www.facebook.com/yourpage",
-      "https://www.instagram.com/yourpage"
-    ],
-    "contactPoint":[{"@type":"ContactPoint","telephone":"+254702647131","contactType":"customer support","areaServed":"KE"}]
-  }
-  </script>
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <span>We use cookies to improve your experience. By continuing, you agree to our cookie policy.</span>
+    <button onclick="acceptCookies()" class="btn btn-primary">Accept</button>
+  </div>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[
-      {
-        "@type":"Product",
-        "name":"Arabica Beans — 250g",
-        "sku":"W-ARAB-250",
-        "image":"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=600",
-        "offers":{"@type":"Offer","priceCurrency":"KES","price":"1600","availability":"https://schema.org/InStock","url":"https://yourdomain.example/#W-ARAB-250"}
-      },
-      {
-        "@type":"Product",
-        "name":"Home Espresso Machine",
-        "sku":"W-ESP-01",
-        "image":"https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600",
-        "offers":{"@type":"Offer","priceCurrency":"KES","price":"18000","availability":"https://schema.org/LimitedAvailability","url":"https://yourdomain.example/#W-ESP-01"}
-      }
-    ]
-  }
-  </script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
+    <p><a href="mailto:info@waldoslimited.com" style="color:#fff;text-decoration:underline">info@waldoslimited.com</a></p>
+  </footer>
 
-  <!-- Minimal inline JS (deferred behavior) -->
+  <!-- Scripts -->
   <script>
-    /* Utility: safe query */
-    const $ = (s,el=document) => el.querySelector(s);
-
-    /* Theme */
-    (function(){
-      const btn = $('#theme-toggle');
-      function setTheme(d){ document.body.classList.toggle('dark', d); btn.textContent = d ? '☀️' : '🌙'; localStorage.setItem('waldos_theme', d ? 'dark' : 'light'); }
-      const saved = localStorage.getItem('waldos_theme');
-      if(saved) setTheme(saved === 'dark'); else setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      btn.addEventListener('click', ()=> setTheme(!document.body.classList.contains('dark')));
-    })();
-
-    /* Mobile drawer */
-    function closeMobile(){ document.getElementById('mobile-drawer').style.display='none'; }
-    function openMobile(){ document.getElementById('mobile-drawer').style.display='flex'; }
-    document.getElementById('open-mobile')?.addEventListener('click', openMobile);
-    document.getElementById('close-mobile')?.addEventListener('click', closeMobile);
-
-    /* Cookie banner */
-    (function(){
-      const cb = document.getElementById('cookie-banner');
-      if(!localStorage.getItem('waldos_cookie')) cb.style.display='flex';
-      window.handleCookie = (accepted) => { localStorage.setItem('waldos_cookie', accepted ? 'accepted' : 'declined'); cb.style.display='none'; }
-    })();
-
-    /* Cart (client demo) */
-    (function(){
-      let cart = JSON.parse(localStorage.getItem('waldos_cart')||'[]');
-      const counter = document.getElementById('cart-counter');
-      const render = ()=> counter.textContent = cart.length;
-      window.addToCart = function(sku,name,price){
-        cart.push({sku,name,price,addedAt:new Date().toISOString()});
-        localStorage.setItem('waldos_cart', JSON.stringify(cart));
-        render();
-        // a polite accessible live announcement:
-        const n = document.createElement('div');
-        n.setAttribute('role','status'); n.style.position='absolute'; n.style.left='-9999px';
-        n.textContent = `${name} added to cart.`;
-        document.body.appendChild(n);
-        setTimeout(()=>n.remove(),1500);
-      };
-      render();
-    })();
-
-    /* Newsletter stub */
-    window.subscribeNewsletter = function(){
-      const e = document.getElementById('newsletterEmail').value.trim();
-      if(!e || !e.includes('@')) return alert('Enter valid email');
-      alert('Thanks — ' + e + ' added to our list (demo).');
-      document.getElementById('newsletterEmail').value='';
-    };
-
-    /* Category filter */
-    document.querySelectorAll('.category-list a').forEach(a=>{
-      a.addEventListener('click', (ev)=>{
-        ev.preventDefault();
-        const f = a.dataset.filter || 'all';
-        document.querySelectorAll('.product-card').forEach(pc=>{
-          pc.style.display = (f==='all' || pc.dataset.category === f) ? '' : 'none';
-        });
-      });
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     });
+    if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}
 
-    /* Simple keyboard toggle for WhatsApp mini menu */
-    document.querySelector('.wa-button').addEventListener('mouseenter', ()=> document.getElementById('wa-mini').style.display='flex');
-    document.querySelector('.wa-button').addEventListener('mouseleave', ()=> document.getElementById('wa-mini').style.display='none');
+    // Mobile drawer
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    document.getElementById('open-mobile').onclick=()=>mobileDrawer.style.display='block';
+    document.getElementById('close-mobile').onclick=()=>mobileDrawer.style.display='none';
+    function closeMobile(){mobileDrawer.style.display='none'}
 
-    /* Accessibility: ensure skip target focus */
-    document.querySelector('.skip-link')?.addEventListener('click', (e)=>{
-      const main = document.getElementById('maincontent'); main && main.focus();
-    });
+    // WhatsApp mini
+    const waButton = document.querySelector('.wa-button');
+    const waMini = document.getElementById('wa-mini');
+    waButton.addEventListener('mouseenter', ()=> waMini.style.display='flex');
+    waButton.addEventListener('mouseleave', ()=> waMini.style.display='none');
 
-    /* Progressive: register a minimal service worker via blob for offline caching */
+    // Cookie banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    if(!localStorage.getItem('cookiesAccepted')){cookieBanner.style.display='flex'}
+    function acceptCookies(){localStorage.setItem('cookiesAccepted','true');cookieBanner.style.display='none'}
+
+    // Newsletter
+    function subscribeNewsletter(e){e.preventDefault();alert('Thank you for subscribing!');document.getElementById('newsletter-email').value=''}
+
+    // Cart (simplified)
+    let cartCount=0;
+    function addToCart(sku,name,price){cartCount++;document.getElementById('cart-counter').textContent=cartCount;alert(`${name} added to cart.`)}
+  </script>
+
+  <!-- Service worker -->
+  <script>
     if('serviceWorker' in navigator){
-      const swCode = `
-        const CACHE = 'waldos-v1';
-        const assets = ['/', '/index.html'];
-        self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c=>c.addAll(assets))); });
-        self.addEventListener('activate', e => { e.waitUntil(self.clients.claim()); });
-        self.addEventListener('fetch', e => {
-          if(e.request.method !== 'GET') return;
-          e.respondWith(caches.match(e.request).then(r=> r || fetch(e.request).then(resp => { if(resp.ok){ caches.open(CACHE).then(c=>c.put(e.request, resp.clone())); } return resp; }).catch(()=>caches.match('/'))));
-        });
-      `;
-      const blob = new Blob([swCode], {type:'application/javascript'});
-      const url = URL.createObjectURL(blob);
-      navigator.serviceWorker.register(url).catch(()=>{/* fail silently */});
+      navigator.serviceWorker.register('/sw.js').then(reg=>console.log('Service Worker registered',reg)).catch(err=>console.warn('SW failed',err));
     }
   </script>
-
-  <!-- Noscript fallback -->
-  <noscript><style>.product-card{opacity:.95}</style><div style="background:#ffefef;padding:.8rem;text-align:center">This site works best with JavaScript enabled.</div></noscript>
 </body>
 </html>
