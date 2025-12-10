@@ -1,188 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Waldos Limited — Coffee roasting, brewing equipment, barista training and premium beans, serving Nairobi and beyond." />
-  <meta name="keywords" content="coffee, espresso machines, coffee beans Kenya, barista training, coffee equipment Nairobi, Waldos Limited" />
   <title>Waldos Limited — Coffee Roasters & Equipment</title>
-  <link rel="icon" href="coffee-icon.png" />
 
-  <!-- Styles -->
+  <!-- Primary meta -->
+  <meta name="description" content="Waldos Limited – premium coffee beans, espresso machines, grinders and barista training in Nairobi. Order online or on WhatsApp." />
+  <meta name="keywords" content="coffee, coffee beans Kenya, espresso machines Nairobi, barista training, Waldos Limited" />
+  <link rel="canonical" href="https://yourdomain.example/" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Waldos Limited" />
+  <meta property="og:title" content="Waldos Limited — Coffee Roasters & Equipment" />
+  <meta property="og:description" content="Premium beans, quality equipment and practical barista training. Order online or message us on WhatsApp for catalogue & orders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
+  <meta property="og:url" content="https://yourdomain.example/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Waldos Limited — Coffee Roasters & Equipment" />
+  <meta name="twitter:description" content="Premium beans, quality equipment and practical barista training." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
+
+  <!-- Icons -->
+  <link rel="icon" href="coffee-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="coffee-icon.png" />
+
+  <!-- Performance: preconnect to fonts and preload hero image -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
+
+  <!-- PWA manifest (simple) -->
+  <link rel="manifest" href="/manifest.json" />
+
   <style>
-    /* --- Reset & base --- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #faf6f1; color: #3e2723; line-height: 1.6; transition: background .3s, color .3s; }
+    /* ----------------- CRITICAL / CORE STYLES ----------------- */
+    :root{
+      --bg:#faf6f1; --text:#3e2723; --muted:#6b4a3d; --accent:#4e342e; --accent-2:#6d4c41; --success:#25D366;
+      --card-bg:#fff; --shadow: rgba(0,0,0,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:Georgia, serif}
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    /* Focus ring for accessibility */
+    :focus{outline: 3px solid rgba(78,52,46,0.18); outline-offset:2px}
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; height: auto; }
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;z-index:9999}
+    .skip-link:focus{left:1rem;top:1rem}
 
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute; left: -999px; top: auto;
-      background: #4e342e; color: #fff; padding: 0.75rem 1rem;
-      z-index: 1000;
-    }
-    .skip-link:focus {
-      left: 1rem; top: 1rem;
+    /* Top announcement */
+    .top-announcement{background:#fff4d9;color:var(--text);text-align:center;padding:.55rem;font-weight:600}
+
+    /* Header */
+    header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;position:sticky;top:0;z-index:1000}
+    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;gap:1rem}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:700;font-size:1.15rem}
+    nav.primary{display:flex;gap:.4rem;align-items:center}
+    nav.primary a{padding:.4rem .6rem;border-radius:6px;font-weight:600}
+    nav.primary a:hover{background:rgba(255,255,255,.06)}
+    .actions{display:flex;gap:.5rem;align-items:center}
+    .icon-btn{background:transparent;border:none;color:#fff;font-size:1.1rem;cursor:pointer;padding:.35rem;border-radius:6px}
+
+    /* Mobile */
+    .mobile-toggle{display:none}
+    @media (max-width:900px){nav.primary{display:none}.mobile-toggle{display:inline-block}}
+
+    /* Container & hero */
+    .container{max-width:1200px;margin:1rem auto;padding:0 1rem}
+    .hero{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder');background-size:cover;background-position:center;border-radius:10px;height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem}
+    .hero h1{font-size:2.2rem;margin-bottom:.5rem}
+    .hero p{max-width:780px}
+
+    /* Shop layout */
+    .shop-grid{display:grid;grid-template-columns:260px 1fr;gap:1rem;margin-top:1.25rem}
+    .sidebar{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
+    .category-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+    .category-list a{display:block;padding:.45rem .6rem;border-radius:8px}
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+    .product-card{background:var(--card-bg);border-radius:10px;overflow:hidden;box-shadow:0 8px 20px var(--shadow);display:flex;flex-direction:column}
+    .product-card img{height:170px;object-fit:cover}
+    .card-body{padding:.9rem;display:flex;flex-direction:column;gap:.4rem;height:100%}
+    .price{font-weight:700;color:var(--accent)}
+    .actions-row{margin-top:auto;display:flex;gap:.5rem;align-items:center}
+    .btn{padding:.55rem .75rem;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-outline{background:transparent;border:1px solid #ddd}
+
+    /* WhatsApp floating */
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:1400;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+    .wa-mini{display:none;flex-direction:column;align-items:flex-end;gap:.45rem}
+    .wa-mini a{background:#fff;padding:.5rem .8rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow);font-weight:700}
+    .wa-button{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--success);box-shadow:0 12px 30px rgba(37,211,102,.18);cursor:pointer}
+
+    /* Cookie banner & footer */
+    .cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 12px 30px var(--shadow);display:none;z-index:1500;align-items:center;justify-content:space-between}
+    footer{background:var(--accent);color:#fff;padding:1rem;border-radius:8px;margin-top:1.5rem;text-align:center}
+
+    /* Testimonials / newsletter */
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .testimonial{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 8px 20px var(--shadow)}
+
+    /* small screens */
+    @media (max-width:900px){
+      .shop-grid{grid-template-columns:1fr}
+      .wa-mini{display:flex}
+      .hero{height:48vh}
     }
 
-    /* Announcement bar */
-    .top-announcement {
-      background: #ffecb3;
-      color: #3e2723;
-      text-align: center;
-      padding: 0.5rem 1rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    /* Header / Navigation */
-    header {
-      background: linear-gradient(90deg, #4e342e, #6d4c41);
-      color: white;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0.75rem 1rem; justify-content: space-between; }
-    .brand { font-family: Georgia, serif; font-size: 1.5rem; }
-    nav { display: flex; align-items: center; gap: 1rem; }
-    nav a { padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 600; }
-    nav a:hover { background: rgba(255,255,255,0.1); }
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: white;
-      cursor: pointer;
-    }
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      color: white;
-      cursor: pointer;
-      margin-left: 0.5rem;
-    }
-
-    /* Layout container */
-    .container { max-width: 1200px; margin: 1rem auto; padding: 0 1rem; }
-
-    /* Hero section */
-    .hero {
-      position: relative;
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-                  url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
-      background-size: cover;
-      background-position: center;
-      height: 60vh;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .hero h2 { font-size: 2.4rem; font-family: Georgia, serif; margin-bottom: 0.75rem; }
-    .hero p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
-
-    /* Shop layout: sidebar + products grid */
-    .shop-grid { display: grid; grid-template-columns: 250px 1fr; gap: 1.5rem; margin-top: 2rem; }
-    .sidebar { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
-    .sidebar h3 { color: #5d4037; margin-bottom: 0.75rem; }
-    .category-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .category-list a { display: block; padding: 0.5rem; border-radius: 6px; }
-    .category-list a:hover { background: #f3e9e6; }
-
-    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; }
-    .product-card {
-      background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-      display: flex; flex-direction: column;
-    }
-    .product-card img { height: 160px; object-fit: cover; }
-    .product-card .body { padding: 0.9rem; display: flex; flex-direction: column; flex: 1; }
-    .product-card h4 { font-size: 1rem; color: #5d4037; margin-bottom: 0.4rem; }
-    .product-card .meta { font-size: 0.85rem; color: #6b4a3d; margin-bottom: 0.5rem; }
-    .price { font-weight: 700; margin-bottom: 0.6rem; }
-    .buy-row { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
-    .buy-btn {
-      padding: 0.5rem 0.75rem;
-      border: none;
-      border-radius: 6px;
-      background: #4e342e;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      flex: 1;
-      margin-right: 0.4rem;
-    }
-    .buy-btn:hover { background: #5d4037; }
-
-    /* Testimonials, newsletter, footer etc. */
-    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1rem; margin-top: 2rem; }
-    .testimonial { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
-    .newsletter { background: #fff; padding: 1rem; border-radius: 10px; display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem; }
-    .newsletter input { flex: 1; min-width: 200px; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; }
-    .newsletter button { padding: 0.6rem 1rem; border: none; border-radius: 6px; background: #5d4037; color: white; font-weight: 600; cursor: pointer; }
-
-    footer {
-      background: #3e2723; color: white; text-align: center;
-      padding: 1.5rem 1rem; margin-top: 3rem; border-radius: 8px;
-    }
-    footer a { color: #fff; margin: 0 0.5rem; font-size: 0.95rem; }
-
-    /* Cookie banner */
-    .cookie-banner {
-      position: fixed; bottom: 1rem; left: 1rem; right: 1rem;
-      background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-      padding: 1rem 1.25rem; border-radius: 8px; display: none;
-      z-index: 1200; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
-    }
-    .cookie-banner button { border: none; padding: 0.5rem 0.8rem; border-radius: 6px; cursor: pointer; }
-    .cookie-banner .accept { background: #4e342e; color: white; }
-    .cookie-banner .decline { background: #f3f3f3; color: #3e2723; margin-left: 0.5rem; }
-
-    /* Dark mode overrides */
-    body.dark {
-      background: #1b1613; color: #f5ebe0;
-    }
-    body.dark .sidebar,
-    body.dark .product-card,
-    body.dark .testimonial,
-    body.dark .newsletter {
-      background: #2b211c;
-      box-shadow: 0 6px 14px rgba(255,255,255,0.03);
-    }
-    body.dark .buy-btn { background: #6d4c41; }
-    body.dark .cookie-banner { background: #2b211c; color: #f5ebe0; }
-    body.dark footer { background: #2a1d18; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .shop-grid { grid-template-columns: 1fr; }
-      .mobile-menu-btn { display: inline-block; }
-      nav { display: none; }
-    }
-    @media (max-width: 520px) {
-      .hero { height: 45vh; padding: 1.2rem; }
-      .hero h2 { font-size: 1.75rem; }
-      .product-card img { height: 140px; }
-    }
+    /* Dark mode */
+    body.dark{background:#0f0d0b;color:#f5e9de}
+    body.dark .sidebar, body.dark .product-card{background:#241b17;box-shadow:0 8px 20px rgba(255,255,255,0.03);}
+    body.dark footer{background:#1b130f}
   </style>
 </head>
 <body>
+  <!-- Skip to content -->
   <a href="#maincontent" class="skip-link">Skip to content</a>
-  <div class="top-announcement">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
 
+  <!-- Announcement -->
+  <div class="top-announcement" role="note">Order before 3 PM for same-day delivery — Pickup available in Nairobi</div>
+
+  <!-- Header -->
   <header>
-    <div class="nav-container">
-      <div class="brand">Waldos Limited</div>
-      <nav id="navbar">
+    <div class="nav-wrap" role="navigation" aria-label="Main navigation">
+      <div class="brand" aria-hidden="false">
+        <img src="coffee-icon.png" alt="Waldos logo" width="36" height="36" style="border-radius:6px;object-fit:cover"/>
+        <span>Waldos Limited</span>
+      </div>
+
+      <nav class="primary" aria-label="Primary links">
         <a href="#about">About</a>
         <a href="#roasting">Roasting</a>
         <a href="#equipment">Equipment</a>
@@ -190,249 +144,343 @@
         <a href="#shop">Shop</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="mobile-menu-btn" id="mobile-menu-open" aria-label="Open menu">☰</button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+      <div class="actions" aria-hidden="false">
+        <button class="icon-btn mobile-toggle" id="open-mobile" aria-label="Open menu">☰</button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="icon-btn" id="cart-btn" aria-label="Cart">🛒 <span id="cart-counter" aria-live="polite">0</span></button>
+      </div>
     </div>
   </header>
 
-  <!-- Mobile drawer menu -->
-  <div id="mobile-drawer" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1500;">
-    <div style="width:260px; background:#fff; height:100%; padding:1rem; box-shadow:4px 0 14px rgba(0,0,0,0.2);">
-      <button id="mobile-menu-close" style="background:none;border:none;font-size:1.1rem;margin-bottom:1rem">✕ Close</button>
-      <nav style="display:flex; flex-direction:column; gap:0.75rem;">
-        <a href="#about">About</a>
-        <a href="#roasting">Roasting</a>
-        <a href="#equipment">Equipment</a>
-        <a href="#training">Training</a>
-        <a href="#shop">Shop</a>
-        <a href="#contact">Contact</a>
+  <!-- Mobile drawer (hidden by default) -->
+  <div id="mobile-drawer" style="display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.45);">
+    <aside style="width:280px;height:100%;background:#fff;padding:1rem;box-shadow:4px 0 20px rgba(0,0,0,.2);">
+      <button id="close-mobile" aria-label="Close menu" style="background:none;border:none;margin-bottom:.6rem">✕ Close</button>
+      <nav style="display:flex;flex-direction:column;gap:.6rem">
+        <a href="#about" onclick="closeMobile()">About</a>
+        <a href="#shop" onclick="closeMobile()">Shop</a>
+        <a href="#contact" onclick="closeMobile()">Contact</a>
       </nav>
-    </div>
-    <div style="flex:1;" onclick="document.getElementById('mobile-drawer').style.display='none'"></div>
+      <hr style="margin:1rem 0" />
+      <div><strong>Contact</strong><p style="margin:.4rem 0"><a href="tel:+254702647131">+254 702 647 131</a></p></div>
+    </aside>
+    <div style="height:100%" onclick="closeMobile()"></div>
   </div>
 
-  <main id="maincontent">
-    <div class="container">
-      <section class="hero" aria-labelledby="hero-title">
-        <h2 id="hero-title">Roasting Perfection, Brewing Passion ☕</h2>
-        <p>From beans to cup — Waldos Limited delivers authentic coffee experiences through quality, craft & care. Browse products below or contact us for training and specialty orders.</p>
-      </section>
-
-      <!-- Shop / product listing area -->
-      <div class="shop-grid" id="shop">
-        <!-- Sidebar categories & store info -->
-        <aside class="sidebar">
-          <h3>Shop by Category</h3>
-          <ul class="category-list">
-            <li><a href="#all">All Products</a></li>
-            <li><a href="#arabica">Arabica Beans</a></li>
-            <li><a href="#espresso">Espresso Machines</a></li>
-            <li><a href="#grinders">Grinders & Brewers</a></li>
-            <li><a href="#training-cat">Training Services</a></li>
-          </ul>
-
-          <div class="pickup" style="margin-top:1.5rem;">
-            <strong>Store / Pickup Info</strong>
-            <p style="margin:0.5rem 0;">Popman House, 3rd Floor, Nyakatch Lane, Nairobi</p>
-            <p><small>Call / WhatsApp: +254 702 647 131</small></p>
-            <p style="font-size:0.9rem; color:#6b4a3d;">Mon–Fri: 9:00 AM – 5:00 PM</p>
-          </div>
-        </aside>
-
-        <!-- Products grid -->
-        <section>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-            <h3 style="color:#4e342e;">Our Best Sellers</h3>
-            <a href="#all" style="color:#6b4a3d; font-weight:600;">View All Products →</a>
-          </div>
-
-          <div class="products">
-            <!-- Example product: replace / duplicate as needed -->
-            <article class="product-card" data-category="arabica">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03" alt="Arabica Beans 250g - medium roast" loading="lazy">
-              <div class="body">
-                <h4>Arabica Beans – 250 g</h4>
-                <div class="meta">Single origin, medium roast</div>
-                <div class="price">KSh 1,600.00</div>
-                <div class="buy-row">
-                  <button class="buy-btn" onclick="addToCart('ARAB-250','Arabica Beans 250g',1600)">Buy now</button>
-                  <span style="font-size:0.85rem; color:#6b4a3d;">In stock</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card" data-category="espresso">
-              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Compact Home Espresso Machine" loading="lazy">
-              <div class="body">
-                <h4>Home Espresso Machine</h4>
-                <div class="meta">Compact – 15-bar pressure</div>
-                <div class="price">KSh 18,000.00</div>
-                <div class="buy-row">
-                  <button class="buy-btn" onclick="addToCart('ESP-01','Home Espresso Machine',18000)">Buy now</button>
-                  <span style="font-size:0.85rem; color:#6b4a3d;">Limited stock</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card" data-category="grinders">
-              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Precision Coffee Grinder" loading="lazy">
-              <div class="body">
-                <h4>Conical Coffee Grinder</h4>
-                <div class="meta">Ideal for espresso brewing</div>
-                <div class="price">KSh 6,500.00</div>
-                <div class="buy-row">
-                  <button class="buy-btn" onclick="addToCart('GRND-01','Conical Grinder',6500)">Buy now</button>
-                  <span style="font-size:0.85rem; color:#6b4a3d;">In stock</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card" data-category="training-cat">
-              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Barista Training Session" loading="lazy">
-              <div class="body">
-                <h4>Barista Training – Intro Course</h4>
-                <div class="meta">1-day hands-on training</div>
-                <div class="price">KSh 4,500.00</div>
-                <div class="buy-row">
-                  <button class="buy-btn" onclick="addToCart('TRN-01','Barista Training – Intro',4500)">Book now</button>
-                  <span style="font-size:0.85rem; color:#6b4a3d;">Seats available</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Add more product-cards here as needed -->
-          </div>
-
-          <!-- Testimonials -->
-          <div style="margin-top: 2rem;">
-            <h3 style="color:#4e342e;">What our customers say</h3>
-            <div class="testimonials">
-              <div class="testimonial">
-                <strong>Dora – Customer</strong>
-                <p style="margin-top:0.5rem;">"The customer service has always been on point. I started purchasing in October 2020 — I always get my items on time, well packaged and in good condition."</p>
-              </div>
-              <div class="testimonial">
-                <strong>Angela – Customer</strong>
-                <p style="margin-top:0.5rem;">"Waldos Limited service is great. I receive products in good time, well packaged. I'm a satisfied client."</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Newsletter sign-up -->
-          <div style="margin-top: 2rem;">
-            <h3 style="color:#4e342e;">Stay updated & receive offers</h3>
-            <div class="newsletter">
-              <input type="email" id="newsletterEmail" placeholder="Your email address" />
-              <button onclick="subscribeNewsletter()">Subscribe</button>
-              <small style="width:100%; margin-top:0.5rem; color:#6b4a3d;">Get the latest offers and product updates.</small>
-            </div>
-          </div>
-        </section>
+  <main id="maincontent" class="container" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">Roasting Perfection — Brewing Passion ☕</h1>
+        <p>Premium beans, equipment and barista training. Order online or message us on WhatsApp for our catalogue and fast delivery in Nairobi.</p>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
+          <a href="#shop" class="btn btn-primary" style="background:#fff;color:var(--accent);padding:.6rem 1rem;border-radius:8px">Shop Now</a>
+          <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue%20and%20price%20list." target="_blank" rel="noopener" class="btn btn-outline" style="background:var(--success);color:#000;padding:.55rem .9rem;border-radius:8px; font-weight:700">View Catalogue on WhatsApp</a>
+        </div>
       </div>
+    </section>
 
-      <!-- About / Company info -->
-      <section id="about" style="margin-top:3rem;">
-        <h2 style="color:#4e342e; margin-bottom:0.75rem;">About Us</h2>
-        <p>Waldos Limited is built on a love for coffee. We roast premium beans, supply high-end brewing equipment, and train enthusiasts and professionals to master the perfect brew. Our mission is to elevate the coffee experience across Kenya and beyond.</p>
+    <!-- Shop grid: sidebar + products -->
+    <div class="shop-grid" id="shop" aria-label="Shop area">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-labelledby="categories-title">
+        <h3 id="categories-title">Categories</h3>
+        <ul class="category-list" id="category-list">
+          <li><a href="#" data-filter="all">All Products</a></li>
+          <li><a href="#" data-filter="arabica">Arabica Beans</a></li>
+          <li><a href="#" data-filter="espresso">Espresso Machines</a></li>
+          <li><a href="#" data-filter="grinders">Grinders & Brewers</a></li>
+          <li><a href="#" data-filter="training">Training</a></li>
+        </ul>
+
+        <div style="margin-top:1rem">
+          <strong style="color:var(--accent)">Pickup & Contact</strong>
+          <p style="margin:.4rem 0">Popman House, 3rd Floor, Nyakatch Lane, Nairobi</p>
+          <p><a href="tel:+254702647131">+254 702 647 131</a></p>
+          <a href="https://wa.me/254702647131?text=Hi%20I%20would%20like%20to%20receive%20the%20catalogue" class="btn btn-primary" style="display:block;margin-top:.6rem;background:var(--success);color:#000">Request Catalogue (WhatsApp)</a>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <section aria-labelledby="products-title">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 id="products-title" style="color:var(--accent)">Featured Products</h2>
+          <div style="color:var(--muted)">Showing top picks</div>
+        </div>
+
+        <div class="products" id="product-grid" aria-live="polite">
+          <!-- Product sample: responsive srcset, JSON-LD later -->
+          <article class="product-card" data-category="arabica" data-sku="W-ARAB-250">
+            <picture>
+              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+              <source media="(min-width:480px)" srcset="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+              <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arabica Beans 250g - medium roast" loading="lazy">
+            </picture>
+            <div class="card-body">
+              <h3>Arabica Beans — 250g</h3>
+              <div class="meta">Single origin · medium roast</div>
+              <div class="price">KSh 1,600</div>
+              <div class="actions-row">
+                <button class="btn btn-primary" onclick="addToCart('W-ARAB-250','Arabica Beans — 250g',1600)">Add to cart</button>
+                <!-- Order via WhatsApp with prefilled message (works immediately) -->
+                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
+                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Arabica%20Beans%20250g%20(SKU%3A%20W-ARAB-250)%20-%20KSh%201600.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="espresso" data-sku="W-ESP-01">
+            <picture>
+              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+              <source media="(min-width:480px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Home espresso machine compact" loading="lazy">
+            </picture>
+            <div class="card-body">
+              <h3>Home Espresso Machine</h3>
+              <div class="meta">Compact – 15 bar pressure</div>
+              <div class="price">KSh 18,000</div>
+              <div class="actions-row">
+                <button class="btn btn-primary" onclick="addToCart('W-ESP-01','Home Espresso Machine',18000)">Add to cart</button>
+                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
+                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Home%20Espresso%20Machine%20(SKU%3A%20W-ESP-01)%20-%20KSh%2018000.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="grinders" data-sku="W-GRND-01">
+            <picture>
+              <source media="(min-width:900px)" srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Conical grinder for espresso" loading="lazy">
+            </picture>
+            <div class="card-body">
+              <h3>Conical Grinder</h3>
+              <div class="meta">Precision grind for espresso</div>
+              <div class="price">KSh 6,500</div>
+              <div class="actions-row">
+                <button class="btn btn-primary" onclick="addToCart('W-GRND-01','Conical Grinder',6500)">Add to cart</button>
+                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
+                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20order%20Conical%20Grinder%20(SKU%3A%20W-GRND-01)%20-%20KSh%206500.%20Name%3A%20%5Bname%5D%20Address%3A%20%5Baddress%5D">Order</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="training" data-sku="W-BAR-01">
+            <picture>
+              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Barista training session" loading="lazy">
+            </picture>
+            <div class="card-body">
+              <h3>Barista Training — Intro</h3>
+              <div class="meta">1-day hands-on course</div>
+              <div class="price">KSh 4,500</div>
+              <div class="actions-row">
+                <button class="btn btn-primary" onclick="addToCart('W-BAR-01','Barista Training — Intro',4500)">Reserve</button>
+                <a class="btn" style="background:var(--success);color:#000" target="_blank" rel="noopener"
+                   href="https://wa.me/254702647131?text=Hi%20I%20want%20to%20book%20Barista%20Training%20Intro%20(SKU%3A%20W-BAR-01)%20-%20KSh%204500.%20Preferred%20date%3A%20%5Bdate%5D%20Name%3A%20%5Bname%5D">Book</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Add more product blocks here. Keep same pattern for SEO/JSON-LD -->
+        </div>
+
+        <!-- Testimonials -->
+        <div style="margin-top:1.25rem">
+          <h3 style="color:var(--accent)">Testimonials</h3>
+          <div class="testimonials">
+            <div class="testimonial" role="article"><strong>Dora</strong><p style="margin-top:.5rem">"Items arrive on time and well packaged. Excellent service."</p></div>
+            <div class="testimonial" role="article"><strong>Angela</strong><p style="margin-top:.5rem">"Great products and support. Highly recommended."</p></div>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div style="margin-top:1.25rem">
+          <h3 style="color:var(--accent)">Newsletter</h3>
+          <div class="newsletter" role="form" aria-label="Newsletter sign up">
+            <input id="newsletterEmail" type="email" placeholder="Your email address" aria-label="Email">
+            <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+          </div>
+        </div>
       </section>
-
-      <!-- Contact -->
-      <section id="contact" style="margin-top:2rem;">
-        <h2 style="color:#4e342e; margin-bottom:0.75rem;">Contact Us</h2>
-        <p>Email: <a href="mailto:info@waldoslimited.com">info@waldoslimited.com</a></p>
-        <p>Phone: <a href="tel:+254702647131">+254 702 647 131</a></p>
-        <p>Location: Nairobi, Kenya</p>
-      </section>
-
     </div>
+
+    <!-- About & Contact -->
+    <section id="about" style="margin-top:2rem">
+      <h2 style="color:var(--accent)">About Us</h2>
+      <p style="margin-top:.5rem">Waldos Limited roasts premium coffee, supplies equipment and trains baristas across Nairobi and Kenya. We care deeply about quality, sustainability and customer experience.</p>
+    </section>
+
+    <section id="contact" style="margin-top:1rem">
+      <h2 style="color:var(--accent)">Contact</h2>
+      <p>Email: <a href="mailto:info@waldoslimited.com">info@waldoslimited.com</a></p>
+      <p>Phone: <a href="tel:+254702647131">+254 702 647 131</a></p>
+    </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Waldos Limited. All rights reserved.</p>
-      <p>
-        <a href="#" aria-label="Instagram">Instagram</a> |
-        <a href="#" aria-label="Facebook">Facebook</a> |
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      </p>
-      <p style="margin-top:1rem; font-size:0.9rem; color:#d7ccc8;">
-        Supported payment: M-Pesa · Visa · PayPal
-      </p>
+    <div style="max-width:1200px;margin:0 auto;padding:0 1rem">
+      <div>&copy; 2025 Waldos Limited</div>
+      <div style="margin-top:.4rem"><a href="#" style="color:#fff">Instagram</a> · <a href="#" style="color:#fff">Facebook</a></div>
+      <div style="margin-top:.5rem;font-size:.9rem;color:#f1e1d4">Payments: M-Pesa · Visa · PayPal</div>
     </div>
   </footer>
 
-  <!-- Cookie consent banner -->
+  <!-- Cookie banner -->
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <div>
-      This website uses cookies to ensure you get the best experience.
-    </div>
-    <div>
-      <button class="accept" onclick="handleCookie(true)">Accept</button>
-      <button class="decline" onclick="handleCookie(false)">Decline</button>
+    <div>This site uses cookies to ensure you get the best experience.</div>
+    <div style="display:flex;gap:.5rem">
+      <button onclick="handleCookie(true)" style="background:var(--accent);color:#fff;padding:.5rem .7rem;border-radius:8px;border:none">Accept</button>
+      <button onclick="handleCookie(false)" style="padding:.5rem .7rem;border-radius:8px;border:1px solid #ddd">Decline</button>
     </div>
   </div>
 
+  <!-- Floating WhatsApp with mini catalogue CTA -->
+  <div class="whatsapp-float" aria-hidden="false">
+    <div class="wa-mini" id="wa-mini">
+      <a href="https://wa.me/254702647131?text=Hi%2C%20please%20send%20me%20your%20catalogue." target="_blank" rel="noopener">View catalogue</a>
+      <a href="https://wa.me/254702647131?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener">Chat</a>
+    </div>
+    <a class="wa-button" href="https://wa.me/254702647131?text=Hi%2C%20I%20would%20like%20to%20order%20or%20see%20your%20catalogue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <!-- SVG WhatsApp icon -->
+      <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.52 3.48C18.13 1.09 14.87 0 11.6 0 5.29 0 .2 5.38.17 11.66c0 2.05.54 4.03 1.56 5.76L0 24l6.8-1.77c1.65.9 3.5 1.37 5.43 1.37 6.31 0 11.4-5.38 11.4-11.66 0-3.26-1.12-6.52-3.11-8.42z" fill="#25D366"/>
+        <path d="M17.46 14.57c-.3-.15-1.78-.87-2.05-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.33.22-.62.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.5.15-.17.2-.28.3-.47.1-.2.05-.4-.02-.55-.07-.15-.67-1.62-.92-2.2-.24-.57-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.34-.28.28-1.08 1.06-1.08 2.6 0 1.53 1.1 3 1.25 3.2.15.2 2.15 3.4 5.2 4.76 3.05 1.36 3.05.91 3.6.86.55-.05 1.78-.72 2.03-1.41.25-.68.25-1.26.17-1.38-.07-.13-.28-.2-.58-.35z" fill="#fff"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Structured data: Organization + sample products -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Waldos Limited",
+    "url":"https://yourdomain.example/",
+    "logo":"https://yourdomain.example/coffee-icon.png",
+    "sameAs":[
+      "https://www.facebook.com/yourpage",
+      "https://www.instagram.com/yourpage"
+    ],
+    "contactPoint":[{"@type":"ContactPoint","telephone":"+254702647131","contactType":"customer support","areaServed":"KE"}]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {
+        "@type":"Product",
+        "name":"Arabica Beans — 250g",
+        "sku":"W-ARAB-250",
+        "image":"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?q=80&w=600",
+        "offers":{"@type":"Offer","priceCurrency":"KES","price":"1600","availability":"https://schema.org/InStock","url":"https://yourdomain.example/#W-ARAB-250"}
+      },
+      {
+        "@type":"Product",
+        "name":"Home Espresso Machine",
+        "sku":"W-ESP-01",
+        "image":"https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600",
+        "offers":{"@type":"Offer","priceCurrency":"KES","price":"18000","availability":"https://schema.org/LimitedAvailability","url":"https://yourdomain.example/#W-ESP-01"}
+      }
+    ]
+  }
+  </script>
+
+  <!-- Minimal inline JS (deferred behavior) -->
   <script>
-    /* Theme toggle & persistence */
-    const themeToggle = document.getElementById('theme-toggle');
-    function setTheme(dark) {
-      document.body.classList.toggle('dark', dark);
-      themeToggle.textContent = dark ? '☀️' : '🌙';
-      localStorage.setItem('waldos_theme', dark ? 'dark' : 'light');
-    }
-    const saved = localStorage.getItem('waldos_theme');
-    if (saved) setTheme(saved === 'dark');
-    else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    themeToggle.addEventListener('click', () => setTheme(!document.body.classList.contains('dark')));
+    /* Utility: safe query */
+    const $ = (s,el=document) => el.querySelector(s);
 
-    /* Mobile drawer menu */
-    document.getElementById('mobile-menu-open').addEventListener('click', () => {
-      document.getElementById('mobile-drawer').style.display = 'flex';
-    });
-    document.getElementById('mobile-menu-close').addEventListener('click', () => {
-      document.getElementById('mobile-drawer').style.display = 'none';
-    });
+    /* Theme */
+    (function(){
+      const btn = $('#theme-toggle');
+      function setTheme(d){ document.body.classList.toggle('dark', d); btn.textContent = d ? '☀️' : '🌙'; localStorage.setItem('waldos_theme', d ? 'dark' : 'light'); }
+      const saved = localStorage.getItem('waldos_theme');
+      if(saved) setTheme(saved === 'dark'); else setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      btn.addEventListener('click', ()=> setTheme(!document.body.classList.contains('dark')));
+    })();
 
-    /* Cookie banner logic */
-    const cookieBanner = document.getElementById('cookie-banner');
-    if (!localStorage.getItem('waldos_cookie')) {
-      cookieBanner.style.display = 'flex';
-    }
-    function handleCookie(accepted) {
-      localStorage.setItem('waldos_cookie', accepted ? 'accepted' : 'declined');
-      cookieBanner.style.display = 'none';
-    }
+    /* Mobile drawer */
+    function closeMobile(){ document.getElementById('mobile-drawer').style.display='none'; }
+    function openMobile(){ document.getElementById('mobile-drawer').style.display='flex'; }
+    document.getElementById('open-mobile')?.addEventListener('click', openMobile);
+    document.getElementById('close-mobile')?.addEventListener('click', closeMobile);
 
-    /* Simple cart (client-side simulation) */
-    let cartCount = Number(localStorage.getItem('waldos_cart_count') || '0');
-    function updateCartCount() {
-      // You could show cart count in header or elsewhere
-      localStorage.setItem('waldos_cart_count', cartCount);
-    }
-    function addToCart(sku, name, price) {
-      cartCount++;
-      updateCartCount();
-      alert(`${name} added to cart. (This is a demo only — implement real checkout.)`);
-    }
+    /* Cookie banner */
+    (function(){
+      const cb = document.getElementById('cookie-banner');
+      if(!localStorage.getItem('waldos_cookie')) cb.style.display='flex';
+      window.handleCookie = (accepted) => { localStorage.setItem('waldos_cookie', accepted ? 'accepted' : 'declined'); cb.style.display='none'; }
+    })();
+
+    /* Cart (client demo) */
+    (function(){
+      let cart = JSON.parse(localStorage.getItem('waldos_cart')||'[]');
+      const counter = document.getElementById('cart-counter');
+      const render = ()=> counter.textContent = cart.length;
+      window.addToCart = function(sku,name,price){
+        cart.push({sku,name,price,addedAt:new Date().toISOString()});
+        localStorage.setItem('waldos_cart', JSON.stringify(cart));
+        render();
+        // a polite accessible live announcement:
+        const n = document.createElement('div');
+        n.setAttribute('role','status'); n.style.position='absolute'; n.style.left='-9999px';
+        n.textContent = `${name} added to cart.`;
+        document.body.appendChild(n);
+        setTimeout(()=>n.remove(),1500);
+      };
+      render();
+    })();
 
     /* Newsletter stub */
-    function subscribeNewsletter() {
-      const email = document.getElementById('newsletterEmail').value.trim();
-      if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-      alert(`Thanks — ${email} added to newsletter list.`);
-      document.getElementById('newsletterEmail').value = '';
-    }
+    window.subscribeNewsletter = function(){
+      const e = document.getElementById('newsletterEmail').value.trim();
+      if(!e || !e.includes('@')) return alert('Enter valid email');
+      alert('Thanks — ' + e + ' added to our list (demo).');
+      document.getElementById('newsletterEmail').value='';
+    };
 
-    /* Adjust scroll padding for sticky header */
-    function adjustScrollPadding() {
-      const h = document.querySelector('header').offsetHeight;
-      document.documentElement.style.scrollPaddingTop = (h + 8) + 'px';
+    /* Category filter */
+    document.querySelectorAll('.category-list a').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const f = a.dataset.filter || 'all';
+        document.querySelectorAll('.product-card').forEach(pc=>{
+          pc.style.display = (f==='all' || pc.dataset.category === f) ? '' : 'none';
+        });
+      });
+    });
+
+    /* Simple keyboard toggle for WhatsApp mini menu */
+    document.querySelector('.wa-button').addEventListener('mouseenter', ()=> document.getElementById('wa-mini').style.display='flex');
+    document.querySelector('.wa-button').addEventListener('mouseleave', ()=> document.getElementById('wa-mini').style.display='none');
+
+    /* Accessibility: ensure skip target focus */
+    document.querySelector('.skip-link')?.addEventListener('click', (e)=>{
+      const main = document.getElementById('maincontent'); main && main.focus();
+    });
+
+    /* Progressive: register a minimal service worker via blob for offline caching */
+    if('serviceWorker' in navigator){
+      const swCode = `
+        const CACHE = 'waldos-v1';
+        const assets = ['/', '/index.html'];
+        self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c=>c.addAll(assets))); });
+        self.addEventListener('activate', e => { e.waitUntil(self.clients.claim()); });
+        self.addEventListener('fetch', e => {
+          if(e.request.method !== 'GET') return;
+          e.respondWith(caches.match(e.request).then(r=> r || fetch(e.request).then(resp => { if(resp.ok){ caches.open(CACHE).then(c=>c.put(e.request, resp.clone())); } return resp; }).catch(()=>caches.match('/'))));
+        });
+      `;
+      const blob = new Blob([swCode], {type:'application/javascript'});
+      const url = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(url).catch(()=>{/* fail silently */});
     }
-    window.addEventListener('load', adjustScrollPadding);
-    window.addEventListener('resize', adjustScrollPadding);
   </script>
+
+  <!-- Noscript fallback -->
+  <noscript><style>.product-card{opacity:.95}</style><div style="background:#ffefef;padding:.8rem;text-align:center">This site works best with JavaScript enabled.</div></noscript>
 </body>
 </html>
